@@ -138,7 +138,7 @@ def import_s3key_to_ami(p):
             'aws',
             '--region', p.region,
             'ec2', 'import-image',
-            '--cli-input-json', json.dumps(awsDiskContainer)]
+            '--disk-containers', json.dumps(awsDiskContainer)]
         logging.info("Running: {}".format(' '.join(aws_import_command)))
         importcmd_resp = subprocess.check_output(aws_import_command)
     except subprocess.CalledProcessError:
